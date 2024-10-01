@@ -1,0 +1,137 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #f7f3e9;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    border: 30px solid transparent;
+    background-image: url('girasol.png');
+    background-repeat: repeat;
+    background-origin: border-box;
+    background-size: 100px 100px;
+    overflow: hidden; /* Ocultar corazones fuera de la pantalla */
+}
+
+.bouquet {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 300px;
+    margin-bottom: 40px;
+}
+
+.rose {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #ff005c, #ff335d, #ff6699);
+    border-radius: 50%;
+    position: relative;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.rose:before {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 100px;
+    background-color: #3b7a57;
+    border-radius: 6px;
+}
+
+.rose:nth-child(1) {
+    transform: translateY(-20px);
+}
+
+.rose:nth-child(2) {
+    transform: translateY(-40px);
+}
+
+.rose:nth-child(3) {
+    transform: translateY(-10px);
+}
+
+h1 {
+    color: #d6003b;
+    font-size: 48px;
+    margin: 0;
+    animation: textFade 2s ease-in-out infinite alternate;
+}
+
+@keyframes textFade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.6;
+    }
+}
+
+/* Corazones flotantes */
+.hearts {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ff005c;
+    clip-path: polygon(50% 0%, 0% 30%, 0% 70%, 50% 100%, 100% 70%, 100% 30%);
+    animation: float 5s linear infinite;
+    opacity: 0.7;
+}
+
+.heart:nth-child(1) {
+    left: 20%;
+    animation-duration: 7s;
+    width: 40px;
+    height: 40px;
+}
+
+.heart:nth-child(2) {
+    left: 50%;
+    animation-duration: 5s;
+    width: 60px;
+    height: 60px;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(3) {
+    left: 80%;
+    animation-duration: 6s;
+    width: 50px;
+    height: 50px;
+    animation-delay: 2s;
+}
+
+/* Animación de flotación */
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
